@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>
+            Carousel
+        </title>
+        <script>
+        var i=0;
+        var sources=["img1.jpeg","img2.jpeg","img3.jpeg","img4.jpeg"];
+        function f1()
+        {
+            if(i==3)
+            {
+                i=0;
+                document.getElementById("im1").src=sources[i];
+            }
+            else
+            {
+                i=i+1;
+                document.getElementById("im1").src=sources[i];
+            }
+        }
+        function f2()
+        {
+            if(i==0)
+            {
+                i=3;
+                document.getElementById("im1").src=sources[i];
+            }
+            else
+            {
+                i=i-1;
+                document.getElementById("im1").src=sources[i];
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <img src='img1.jpeg' oncontextmenu="f2()" onclick="f1()" id='im1' style="vertical-align:middle">
+        <img src=''>
+        <img src=''>
+    </body>
+</html>

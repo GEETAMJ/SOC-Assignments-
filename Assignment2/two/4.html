@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html>
+        <head>
+            <title>
+    
+            </title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+            $("#t1").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#table tr:not(:first)").filter(function() {
+                    var temp=0;
+                    $(this).find( "td" ).each( function () {
+                        if($(this).text().toLowerCase().indexOf(value)>-1)
+                        {
+                            temp+=1;
+                            $(this).addClass("newcol");
+                        }
+                        else{
+                            $(this).removeClass("newcol");
+                        }
+                    })
+                    if(temp==0)
+                    {
+                        $(this).hide();
+                    }
+                // $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                // if($(this).text().toLowerCase().indexOf(value) > -1)
+                // {
+                //     $(this).addClass("newcol");
+                // }
+                });
+            });
+            });
+        // function f()
+        // {
+        //     // document.getElementById('1').style="display:none;";
+        //     var s = document.getElementById('t1').value;
+        //     var table = document.getElementById("table");
+        //     for (var i = 1, row; row = table.rows[i]; i++) {
+        //         var temp=0;
+        //         for (var j = 0, col; col = row.cells[j]; j++) {
+        //             if((col.innerHTML).includes(s)==true)
+        //             {
+        //                 col.className += "newcol";
+        //                 temp=1;
+        //                 break;
+        //             }
+        //         }
+        //         if(temp==0)
+        //         {
+        //             row.style="display:none;";
+        //         }
+        //     }
+        // }  
+        </script>
+        <style>
+        .newcol{
+            color:coral;
+        }
+        table{
+            width:100%;
+            height:50px;
+            border-collapse: collapse;
+        }
+        table,td,th{
+            border: 1px solid black;
+        }
+        td{
+            height:40px;
+        }
+        td:hover {background-color: rgb(0, 255, 242);}
+        tr:nth-child(even) {background-color: rgba(0, 0, 255, 0.178);}
+        th {
+            background-color: rgb(140, 175, 76);
+            color: rgb(155, 33, 33);
+        }
+        </style>
+        </head>
+        <body>
+            <table id='table'>
+                <tr>
+                    <th>S No.</th>
+                    <th>Subject</th>
+                    <th>GPA</th>
+                </tr>
+                <tr>
+                    <td>1</td>
+                    <td>ESC101</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>ESC201</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>EE210</td>
+                    <td>6</td>
+                </tr>
+                <tr>
+                        <td>4</td>
+                        <td>PHY103</td>
+                        <td>6</td>
+                </tr>
+                <tr>
+                        <td>5</td>
+                        <td>PHY102</td>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <td>6</td>
+                        <td>MTH101</td>
+                        <td>8</td>
+                </tr>
+                <tr>
+                        <td>7</td>
+                        <td>MTH102</td>
+                        <td>4</td>
+                </tr>
+            </table><br>
+            <form>
+                <input type='text' id='t1'><br>
+                <input type='button' value='Search!' id='b1'>
+            </form>
+        </body>
+    </html>
